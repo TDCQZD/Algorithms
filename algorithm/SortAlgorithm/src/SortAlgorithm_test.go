@@ -10,8 +10,13 @@ func TestSortAlgorithm(t *testing.T) {
 	// BulleSort(arrys)
 
 	A := []int{2, 8, 7, 1, 3, 5, 6, 4}
-	quickSort(A, 0, 7)
-	fmt.Println(A)
+	// quickSort(A, 0, 7)
+	// fmt.Println(A)
 
 	// InsertSort1(A)
+
+	// arr := ShellSort(A)
+	//
+	arr := MergeSort(A)
+	fmt.Println(arr)
 }

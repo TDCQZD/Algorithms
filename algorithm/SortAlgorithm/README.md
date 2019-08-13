@@ -11,13 +11,14 @@
 * [希尔排序-ShellSort](./ShellSort.md)
 * [归并排序-MergeSort](./MergeSort.md)
 * [堆排序-HeapSort](./HeapSort.md)
+
 * [基数排序-RadixSort](./RadixSort.md)
 * [计数排序-CountSort](./CountSort.md)
 * [桶排序-BucketSort](./BucketSort.md)
 ## 算法复杂度分析
-![BubbleSort](./imgs/sort.png)
+![Sort](./imgs/sort.png)
 
-![BubbleSort](./imgs/sort1.png)
+![Sort](./imgs/sort2.png)
 
 ## 参考资料
 * [排序算法总结](https://www.runoob.com/w3cnote/sort-algorithm-summary.html)
