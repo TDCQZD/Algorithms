@@ -1,5 +1,23 @@
 package src
+// O(N)
+// dynamic programming
+func Fibonacci1(n int) int {
+	array := make([]int, n+1)
 
+	array[0] = 1
+	array[1] = 1
+	i := 2
+	for {
+		if i > n {
+			break
+		}
+		array[i] = array[i-1] + array[i-2]
+		i++
+			
+	}
+
+	return array[n]
+}
 // O(N)
 func climbStairs(n int) int {
 	if 1 == n {

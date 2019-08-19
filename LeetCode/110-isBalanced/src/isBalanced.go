@@ -10,8 +10,8 @@ func isBalanced(root *TreeNode) bool {
 	if nil == root {
 		return true
 	}
-	diff := depth(root.Left) - depth(root.Right)
-	if diff > 1 || diff < -1 {
+	diff := abs(depth(root.Left) - depth(root.Right))
+	if diff > 1 {
 		return false
 	}
 	return isBalanced(root.Left) && isBalanced(root.Right)
@@ -21,13 +21,18 @@ func depth(root *TreeNode) int {
 	if nil == root {
 		return 0
 	}
+	return max(depth(root.Left), depth(root.Right)) + 1
+}
 
-	left := depth(root.Left)
-	right := depth(root.Right)
-
-	if left > right {
-		return left + 1
-	} else {
-		return right + 1
+func max(x, y int) int {
+	if x >= y {
+		return x
 	}
+	return y
+}
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
 }

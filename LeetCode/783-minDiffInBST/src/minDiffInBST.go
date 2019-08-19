@@ -23,13 +23,13 @@ func check(node *TreeNode, nums []int) {
 	}
 	check(node.Left, nums)
 	if -1 != nums[1] {
-		nums[0] = myMin(nums[0], node.Val-nums[1])
+		nums[0] = AbsMin(nums[0], node.Val-nums[1])
 	}
 	nums[1] = node.Val
 	check(node.Right, nums)
 }
 
-func myMin(a, b int) int {
+func AbsMin(a, b int) int {
 	if a <= b {
 		return a
 	}
