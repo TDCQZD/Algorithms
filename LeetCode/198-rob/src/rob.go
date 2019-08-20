@@ -27,3 +27,14 @@ func maxInt(a, b int) int {
 	}
 	return b
 }
+func rob1(nums []int) int {
+	prevMax := 0
+	currMax := 0
+
+	for i := 0; i < len(nums); i++ {
+		temp := currMax
+		currMax = maxInt(prevMax+nums[i], currMax)
+		prevMax = temp
+	}
+	return currMax
+}
