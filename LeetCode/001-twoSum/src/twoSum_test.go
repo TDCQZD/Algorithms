@@ -1,8 +1,9 @@
 package src
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestTwoSum(t *testing.T) {
@@ -52,7 +53,7 @@ func TestOk(t *testing.T) {
 	ast := assert.New(t)
 	for _, exam := range examples {
 		arg, ans := exam.arg, exam.ans
-		ast.Equal(ans.numberArray, TwoSum(arg.numberArray, arg.target),
+		ast.Equal(ans.numberArray, TwoSum2(arg.numberArray, arg.target),
 			"%v %v", arg.numberArray, arg.target)
 	}
 

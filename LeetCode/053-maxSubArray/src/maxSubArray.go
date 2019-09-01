@@ -1,5 +1,5 @@
 package src
-
+// DP
 func maxSubArray(nums []int) int {
 	if nil == nums || len(nums) < 1 {
 		return 0
@@ -17,4 +17,11 @@ func maxSubArray(nums []int) int {
 		}
 	}
 	return maxSum
+}
+// 分治
+func maxSubArray1(nums []int) int {
+	if nil == nums || len(nums) < 1 {
+		return 0
+	}
+
 }

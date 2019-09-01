@@ -1,5 +1,6 @@
 package src
 
+// 二分查找思想
 func searchInsert(nums []int, target int) int {
 	if nil == nums || len(nums) < 1 {
 		return 0
