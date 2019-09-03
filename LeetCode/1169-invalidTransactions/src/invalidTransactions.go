@@ -1,7 +1,6 @@
 package src
 
 import (
-	"fmt"
 	"strconv"
 	"strings"
 )
@@ -11,35 +10,49 @@ func invalidTransactions(transactions []string) []string {
 		return nil
 	}
 	inval := []string{}
-	stringMap := make(map[string]string)
-	for i := 0; i < len(transactions); i++ {
-		s := strings.Split(transactions[i], ",")
-		sToi, _ := strconv.Atoi(s[2])
-		if sToi > 1000 {
-			inval = append(inval, transactions[i])
-		}
-		if ms, ok := stringMap[s[0]]; ok {
-			mapEle := strings.Split(ms, ",")
-			mapEle1, _ := strconv.Atoi(mapEle[1])
-			mapEle2, _ := strconv.Atoi(mapEle[2])
-			s2, _ := strconv.Atoi(s[1])
-			if mapEle[3] != s[3] && abs(s2, mapEle1) < 60 {
-				if sToi <= 1000 {
-					inval = append(inval, transactions[i])
-				}
-				if mapEle2 <= 1000 {
-					inval = append(inval, ms)
-				}
+	nameMap := make(map[string][]string)
 
+	// for i := 0; i < len(transactions); i++ {
+	// tx := strings.Split(transactions[i], ",")
+	for _, transaction := range transactions {
+		tx := strings.Split(transaction, ",")
+		txflag := false // 当前交易添加标志
+		name := tx[0]
+		time1, _ := strconv.Atoi(tx[1])
+		amount, _ := strconv.Atoi(tx[2])
+		city := tx[3]
+		//时间比较
+		if _, ok := nameMap[name]; ok {
+			for _, nameTX := range nameMap[name] {
+
+				nametx := strings.Split(nameTX, ",")
+				time2, _ := strconv.Atoi(nametx[1])
+				if abs(time1, time2) <= 60 && nametx[3] != city {
+					if txflag {
+						inval = append(inval, nameTX)
+						txflag = false
+					} else {
+						inval = append(inval, nameTX, transaction)
+						txflag = true
+					}
+
+				}
 			}
+
 		}
-		if sToi > 1000 {
-			inval = append(inval, transactions[i])
+		nameMap[name] = append(nameMap[name], transaction)
+		//价格比较
+		if !txflag {
+			if amount > 1000 {
+				inval = append(inval, transaction)
+			}
+
 		}
-		stringMap[s[0]] = transactions[i]
+
 	}
 	return inval
 }
+
 
 func abs(a, b int) int {
 	d := a - b
@@ -48,16 +61,4 @@ func abs(a, b int) int {
 	} else {
 		return 0 - d
 	}
-}
-func RemoveRepByMap(slc []string) []string {
-	result := []string{}
-	tempMap := map[string]byte{} // 存放不重复主键
-	for _, e := range slc {
-		l := len(tempMap)
-		tempMap[e] = 0
-		if len(tempMap) != l { // 加入map后，map长度变化，则元素不重复
-			result = append(result, e)
-		}
-	}
-	return result
 }
