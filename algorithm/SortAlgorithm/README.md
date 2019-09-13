@@ -23,7 +23,7 @@
 ## 参考资料
 * [排序算法总结](https://www.runoob.com/w3cnote/sort-algorithm-summary.html)
 * [十大经典排序算法](https://www.runoob.com/w3cnote/ten-sorting-algorithm.html)
-
+* [十大编程算法助程序员走上高手之路](https://www.runoob.com/w3cnote/the-friendship-algorithm-the-big-bang-theory.html)
 
 
 
