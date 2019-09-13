@@ -16,6 +16,7 @@ func removeDuplicates1(nums []int) (newLength int, newNums []int) {
 	}
 	return newLength, newNums
 }
+
 func removeDuplicates(nums []int) int {
 	if nil == nums || len(nums) < 1 {
 		return 0

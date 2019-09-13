@@ -2,7 +2,7 @@ package src
 
 import "sort"
 
-// 双指针
+// 双指针 尾插法
 func merge(nums1 []int, m int, nums2 []int, n int) {
 	idm, idn := m-1, n-1
 	for i := m + n - 1; i >= 0; i-- {
